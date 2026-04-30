@@ -10,7 +10,7 @@ test.describe('Account Creation', () => {
         initialBalance: faker.number.int({ min: 0, max: 100000 })
     }
 
-    test('Should create a new account successfully', async ({ request }) => {
+    test('Should successfully create a new account', async ({ request }) => {
         const response = await request.post('/accounts', { data: user });
         const body = await response.json();
         expect(response.status()).toBe(201);
