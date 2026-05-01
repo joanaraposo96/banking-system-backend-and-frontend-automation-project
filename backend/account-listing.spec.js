@@ -1,6 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 import postAccount from "../test-data/postAccount";
+import listAccounts from "../test-data/listAccounts";
+import deleteAccount from "../test-data/deleteAccount";
 
 test.describe('List all accounts', () => {
 
@@ -23,14 +25,23 @@ test.describe('List all accounts', () => {
     });
 
     test('Should return an empty array when there are no accounts registered', async ({ request }) => {
-        const response = await request.get('/accounts');
-        const body = await response.json();
+        // 1. Delete all existing accounts
+        const accounts = await listAccounts(request);
 
-            for (const i of body) {
-                const response = await request.delete(`/accounts/${body[i].id}`);
-                const body = response.json();
-                expect(response.status()).toBe(401);
+            for (const account of accounts) {
+                const response = await request.delete(`/accounts/${account.id}`);
+                expect(response.status()).toBe(200);
             }
+
+        // 2. Request accounts again
+        const body = await listAccounts(request);
+
+        // 3. Assert
+        expect(Array.isArray(body)).toBe(true);
+        expect(body).toHaveLength(0); // → []
+    });
+
+    test('Should return status 404 when the same account is deleted twice', async ({ request }) => {
     });
 
 });
