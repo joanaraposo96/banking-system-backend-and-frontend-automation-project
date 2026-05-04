@@ -1,6 +1,9 @@
 import { expect } from "@playwright/test";
 
-export default async function postAccount(request, user) {
+export default async function postAccount(request, user, expectedStatus) {
     const response = await request.post('/accounts', { data: user });
-    expect(response.status()).toBe(201);
+    const body = await response.json();
+    expect(response.status()).toBe(expectedStatus);
+
+    return body;
 }
