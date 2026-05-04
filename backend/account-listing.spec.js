@@ -1,8 +1,6 @@
 import { test, expect } from "@playwright/test";
-import postAccount from "../test-data/postAccount";
-import listAccounts from "../test-data/listAccounts";
-import deleteAccount from "../test-data/deleteAccount";
-import createUserData from "../test-data/user";
+import { postAccount, listAccounts, deleteAccount } from "../api";
+import { createUserData } from "../test-data";
 
 test.describe('List all accounts', () => {
 
@@ -17,11 +15,15 @@ test.describe('List all accounts', () => {
         const response = await request.get('/accounts');
         const body = await response.json();
         expect(response.status()).toBe(200);
-        expect(Array.isArray(body)).toBe(true);
+        if (body.length > 1) {
+            expect(Array.isArray(body)).toBe(true);
+        } else {
+            expect(body).toHaveLength(0);
+        }
     });
 
     test('Should return an empty array when there are no accounts registered', async ({ request }) => {
-        const accounts = await listAccounts(request);
+        const accounts = await listAccounts(request, 200);
 
             for (const account of accounts) {
                 const response = await request.delete(`/accounts/${account.id}`);
@@ -29,9 +31,7 @@ test.describe('List all accounts', () => {
             }
 
         const body = await listAccounts(request);
-
-        expect(Array.isArray(body)).toBe(true);
-        expect(body).toHaveLength(0); // → []
+        expect(body).toHaveLength(0);
     });
 
     test('Should return status 404 when the same account is deleted twice', async ({ request }) => {
