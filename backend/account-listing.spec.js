@@ -9,28 +9,20 @@ test.describe('List all accounts', () => {
     test.beforeEach(async ({ request }) => {
         const user = createUserData();
         account = await postAccount(request, user, 201);
-    })
+    });
 
     test('Should return all registered accounts', async ({ request }) => {
-        const response = await request.get('/accounts');
-        const body = await response.json();
-        expect(response.status()).toBe(200);
-        if (body.length > 1) {
-            expect(Array.isArray(body)).toBe(true);
-        } else {
-            expect(body).toHaveLength(0);
-        }
+        await listAccounts(request, 200);
     });
 
     test('Should return an empty array when there are no accounts registered', async ({ request }) => {
         const accounts = await listAccounts(request, 200);
 
             for (const account of accounts) {
-                const response = await request.delete(`/accounts/${account.id}`);
-                expect(response.status()).toBe(200);
+                await deleteAccount(request, account, 200);
             }
 
-        const body = await listAccounts(request);
+        const body = await listAccounts(request, 200);
         expect(body).toHaveLength(0);
     });
 
