@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start:server": "node /home/joana/Desktop/.rumos/exercises/automation/ui_api/banking-system/backend/server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
