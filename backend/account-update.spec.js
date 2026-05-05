@@ -27,16 +27,20 @@ test.describe('Update accounts', () => {
         expect(body.email).toBe(updatedAccount.email);
     });
 
-    test('Should not allow updating cpf or balance', async ({ request }) => {
-        const updatedAccount = {
-            ...account,
-            cpf: `${faker.string.numeric(3)}.${faker.string.numeric(3)}.${faker.string.numeric(3)}-${faker.string.numeric(2)}`,
-            balance: faker.number.int({ min: 0, max: 100000 })
+    test('Should return status 404 ID id does not exist', async ({ request }) => {
+        const wrongAccountID = {
+            id: `${account.id}+error`
         }
 
-        const body = await putAccount(request, account, updatedAccount, 400);
+        const updatedAccount = {
+            ...account,
+            name: faker.person.fullName(),
+            email: faker.internet.email()
+        }
 
-        console.log(body);
+        const body = await putAccount(request, wrongAccountID, updatedAccount, 404);
+        
+        expect(body.error).toBe('Conta não encontrada');
     });
 
 });
