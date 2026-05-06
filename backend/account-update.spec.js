@@ -1,8 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { faker } from "@faker-js/faker";
-import { createUserData } from "../test-data";
-import { postAccount } from "../api";
-import { putAccount } from "../api";
+import { createUserData } from "..";
+import { postAccount, putAccount } from "..";
 
 
 test.describe('Update accounts', () => {

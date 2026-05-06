@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:server": "node /home/joana/Desktop/.rumos/exercises/automation/ui_api/banking-system/backend/server.js"
+    "start:server": "node ../api/backend"
   },
   "keywords": [],
   "author": "",

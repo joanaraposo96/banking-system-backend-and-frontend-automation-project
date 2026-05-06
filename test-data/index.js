@@ -1,1 +1,0 @@
-export { createUserData } from "./factories/user";

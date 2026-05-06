@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { getAccount, postAccount } from "../api";
-import { createUserData } from "../test-data";
+import { getAccount, postAccount } from "..";
+import { createUserData } from "..";
 
 test.describe('Retrieve accounts', () => {
 
