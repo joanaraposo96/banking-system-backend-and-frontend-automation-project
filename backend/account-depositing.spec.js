@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { faker } from "@faker-js/faker";
-import { createUserData } from "..";
+import { createUserData, createMoneyData } from "..";
 import { postAccount, postDeposit } from "..";
-import { createMoneyData } from "../test-data/money";
 
 test.describe('Account depositing', () =>{
     let account;
