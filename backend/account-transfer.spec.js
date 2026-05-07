@@ -1,6 +1,7 @@
 import { expect, test } from "@playwright/test";
-import { createUserData } from "..";
-import { postAccount } from "..";
+import { createUserData, createTransferData  } from "..";
+import { postAccount, postTransfer } from "..";
+
 
 test.describe('Account depositing', () =>{
     let account1;
@@ -14,6 +15,16 @@ test.describe('Account depositing', () =>{
     });
 
     test('Should allow depositing of money between two accounts', async ({ request }) =>{
+        const transfer = createTransferData(account2.id);
+
+        const body = await postTransfer(request, account1, transfer, 201);
+
+        const totalBalanceAccount1 = account1.balance - transfer.amount;
+        const totalBalanceAccount2 = account2.balance + transfer.amount;
+
+        expect(body.message).toBe('Transferência realizada com sucesso');
+        expect(body.sourceBalance).toBe(totalBalanceAccount1);
+        expect(body.targetBalance).toBe(totalBalanceAccount2);
     });
 
 });

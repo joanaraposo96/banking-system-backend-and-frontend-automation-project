@@ -5,7 +5,7 @@ export async function postTransfer(request, account, transfer) {
 
     expect(response.status()).toBe(200);
 
-    const body = response.json();
+    const body = await response.json();
 
     return body;
 }
