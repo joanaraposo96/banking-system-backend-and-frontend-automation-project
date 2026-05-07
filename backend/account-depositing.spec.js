@@ -3,7 +3,6 @@ import { faker } from "@faker-js/faker";
 import { createUserData } from "..";
 import { postAccount, postDeposit } from "..";
 import { createMoneyData } from "../test-data/money";
-import { create } from "node:domain";
 
 test.describe('Account depositing', () =>{
     let account;
