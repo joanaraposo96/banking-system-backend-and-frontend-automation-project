@@ -16,11 +16,12 @@ test.describe('Account depositing', () =>{
 
     test('Should allow depositing of money between two accounts', async ({ request }) =>{
         const transfer = createTransferData(account2.id);
+        const amount = transfer.amount;
 
         const body = await postTransfer(request, account1, transfer, 201);
 
-        const totalBalanceAccount1 = account1.balance - transfer.amount;
-        const totalBalanceAccount2 = account2.balance + transfer.amount;
+        const totalBalanceAccount1 = account1.balance - amount;
+        const totalBalanceAccount2 = account2.balance + amount;
 
         expect(body.message).toBe('Transferência realizada com sucesso');
         expect(body.sourceBalance).toBe(totalBalanceAccount1);
