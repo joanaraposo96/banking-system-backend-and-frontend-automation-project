@@ -1,6 +1,3 @@
-## 🚧 Status
-This automation project is currently under active development and is being worked on.
-
 ## Setup & Install
 
 1. Install node_modules in root and server folders:
@@ -21,3 +18,7 @@ npm run dev
 ```
 http://localhost:3000/api-docs/
 ```
+
+## Credits
+
+This backend automation project is based on the original API system built by **Bruno Figueiredo** 👉 [banking-api-training-system](https://github.com/brunonf15/banking-api-training-system).
