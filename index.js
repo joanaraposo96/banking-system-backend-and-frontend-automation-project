@@ -7,3 +7,4 @@ export { createUserData } from "./test-data/user";
 export { postDeposit } from "./helpers/postDeposit";
 export { postTransfer } from "./helpers/postTransfer";
 export { createTransferData } from "./test-data/transfer";
+export { createMoneyData } from "./test-data/money";
