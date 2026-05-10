@@ -1,7 +1,5 @@
 # 🏦 Banking System Backend Automation Project
-This repository contains automated backend tests for a banking API system.  
-It covers core operations like account creation, deletion, deposits, transfers, retrieval, and updates.  
-The automation is built with **Playwright** and **JavaScript**, using **Faker.js** for generating dynamic test data.
+This repository contains automated backend tests for a banking API system. It covers core operations like account creation, deletion, deposits, transfers, retrieval, and updates. The automation is built with **Playwright** and **JavaScript**, using **Faker.js** for generating dynamic test data.
 
 ## 🛠️ Tech Stack
 - JavaScript (ES6+)
