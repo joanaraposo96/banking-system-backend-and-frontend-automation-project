@@ -34,21 +34,21 @@ http://localhost:3000/api-docs/
 BANKING-SYSTEM-BACKEND-AUTOMATION-PROJECT
 📁 .github
 📁 backend
-├── account-creation.spec.js
-├── account-deletion.spec.js
-├── account-depositing.spec.js
-├── account-listing.spec.js
-├── account-retrieving.spec.js
-├── account-transfer.spec.js
-└── account-update.spec.js
+├── 🧪 account-creation.spec.js
+├── 🧪 account-deletion.spec.js
+├── 🧪 account-depositing.spec.js
+├── 🧪 account-listing.spec.js
+├── 🧪 account-retrieving.spec.js
+├── 🧪 account-transfer.spec.js
+└── 🧪 account-update.spec.js
 📁 helpers
-├── deleteAccount.js
-├── getAccount.js
-├── listAccounts.js
-├── postAccount.js
-├── postDeposit.js
-├── postTransfer.js
-└── putAccount.js
+├── 🔧 deleteAccount.js
+├── 🔧 getAccount.js
+├── 🔧 listAccounts.js
+├── 🔧 postAccount.js
+├── 🔧 postDeposit.js
+├── 🔧 postTransfer.js
+└── 🔧 putAccount.js
 📁 server
 ├── 📂 routes
 ├── 🗄️ db.js
@@ -56,9 +56,9 @@ BANKING-SYSTEM-BACKEND-AUTOMATION-PROJECT
 ├── 📦 package-lock.json
 └── 🖥️ server.js
 📁 test-data
-├── money.js
-├── transfer.js
-└── user.js
+├── 🔧 money.js
+├── 🔧 transfer.js
+└── 🔧 user.js
 📝 index.js
 📦 package.json
 📦 package-lock.json
